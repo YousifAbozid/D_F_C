@@ -1,4 +1,5 @@
 import React from "react"
+import Weather from "./Weather"
 
 const CountryInfo = ({filteredCountries}) => {
     const country = filteredCountries[0]
@@ -10,9 +11,11 @@ const CountryInfo = ({filteredCountries}) => {
             <p>population {country.population}</p> 
             <h2>languages</h2>
             <ul>
-            {country.languages.map((lang, index) => <li key={index}>{lang.name}</li>)}
+            {country.languages.map(lan => <li key={lan.name}>{lan.name}</li>)}
             </ul>
-            <img src={country.flag} alt="country-flag" width="150" height="150"/>
+            <img src={country.flag} alt="country-flag" width="200" height="150"/>
+            <h2>Weather in {country.capital} </h2>
+            <Weather capital={country.capital} />
         </div>
     )
 }
